@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Serif+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>    
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyAlcADHnu1f9P9l8c2Kemmh6SSm4SOnpbc",
+            authDomain: " dummheit-des-tages.firebaseapp.com",
+            databaseURL: "https://dummheit-des-tages.firebaseio.com/",
+            storageBucket: "gs://dummheit-des-tages.appspot.com"
+        };
+        firebase.initializeApp(config);
+
+        // Get a reference to the database service
+        var database = firebase.database();
+
+        var firstPartArray = [];
+        var ref = firebase.database().ref().child('/firstPart').orderByChild('wordcount');
+        ref.once('value',function(snap) {
+            snap.forEach(function(item) {
+                var itemVal = item.val();
+                firstPartArray.push(itemVal);
+            });
+        });
+
+        var secondPartArray = [];
+        ref = firebase.database().ref().child('/secondPart').orderByChild('wordcount');
+        ref.once('value',function(snap) {
+            snap.forEach(function(item) {
+                var itemVal = item.val();
+                secondPartArray.push(itemVal);
+            });
+        });
+
+        var thirdPartArray = [];
+        ref = firebase.database().ref().child('/thirdPart').orderByChild('wordcount');
+        ref.once('value',function(snap) {
+            snap.forEach(function(item) {
+                var itemVal = item.val();
+                thirdPartArray.push(itemVal);
+            });
+        });
+        
+
+        function WeisheitGenerieren() {
+            var firstIndex = Math.floor(Math.random() * firstPartArray.length);
+            var secondIndex = Math.floor(Math.random() * secondPartArray.length);
+            var thirdIndex = Math.floor(Math.random() * thirdPartArray.length);
+
+            var weisheit = [firstPartArray[firstIndex], secondPartArray[secondIndex], thirdPartArray[thirdIndex]];
+
+            return weisheit;
+        }
+
+        function WeisheitAnzeigen() {
+            var weisheit = WeisheitGenerieren();
+            var divFirstPart = document.getElementById("firstPart");
+            var divSecondPart = document.getElementById("secondPart");
+            var divThirdPart = document.getElementById("thirdPart");
+            
+            divFirstPart.innerHTML = weisheit[0];
+            divSecondPart.innerHTML = weisheit[1];
+            divThirdPart.innerHTML = weisheit[2];
+        }
+
+    </script>
+
+    <title>Dummheit des Tages</title>
+  </head>
+  <body class="theme-white">
+    <main>
+        <div id="weisheit">
+            <div id="firstPart" class="card">Generiere</div>
+            <div id="secondPart" class="card">deine Dummheit</div>
+            <div id="thirdPart" class="card">des Tages!</div>
+        </div>
+        <div onclick="WeisheitAnzeigen()" class="generateButton">Generate Dummheit</div>
+    </main>
+    <footer>
+        Adrian Betschart © 2017
+    </footer>
+  </body>
+</html>
