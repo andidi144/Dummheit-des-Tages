@@ -34,18 +34,6 @@ footer {
     padding-left: 30px;
 }
 
-#weisheit {
-    /* transform: perspective( 600px ) rotateY(20deg) rotateX(20deg) rotateZ(-3deg); */
-    /* position: relative;
-    top: 100px;
-    height: 300px;
-    width: 700px;
-    max-width: 90%;
-    display: flex;
-    margin: auto;
-    z-index: 100; */
-}
-
 .card {
     position: absolute;
     font-family: sans-serif;
