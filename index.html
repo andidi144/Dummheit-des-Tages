@@ -61,6 +61,27 @@
             return weisheit;
         }
 
+        function ChangeCard(cardNumber) {
+            var index = Math.floor(Math.random() * firstPartArray.length);
+            var cardDiv;
+            var part;
+            switch(cardNumber) {
+                case 1:
+                    cardDiv = document.getElementById("firstPart");
+                    part = firstPartArray[index];
+                    break;
+                case 2:
+                    cardDiv = document.getElementById("secondPart");
+                    part = secondPartArray[index];
+                    break;
+                case 3:
+                    cardDiv = document.getElementById("thirdPart");
+                    part = thirdPartArray[index];
+                    break;
+            }
+            cardDiv.innerHTML = part;
+        }
+
         function WeisheitAnzeigen() {
             var weisheit = WeisheitGenerieren();
             var divFirstPart = document.getElementById("firstPart");
@@ -71,7 +92,6 @@
             divSecondPart.innerHTML = weisheit[1];
             divThirdPart.innerHTML = weisheit[2];
         }
-
     </script>
 
     <title>Dummheit des Tages</title>
@@ -79,9 +99,9 @@
   <body class="theme-white">
     <main>
         <div id="weisheit">
-            <div id="firstPart" class="card">Generiere</div>
-            <div id="secondPart" class="card">deine Dummheit</div>
-            <div id="thirdPart" class="card">des Tages!</div>
+            <div id="firstPart" class="card" onclick="ChangeCard(1)">Generiere</div>
+            <div id="secondPart" class="card" onclick="ChangeCard(2)">deine Dummheit</div>
+            <div id="thirdPart" class="card" onclick="ChangeCard(3)">des Tages!</div>
         </div>
         <div onclick="WeisheitAnzeigen()" class="generateButton">Generate Dummheit</div>
     </main>
