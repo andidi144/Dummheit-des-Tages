@@ -50,7 +50,6 @@ footer {
     position: absolute;
     font-family: sans-serif;
     font-size: 30px;
-    width: 28%;
     height: 300px;
     margin: auto;
     text-align: center;
@@ -87,14 +86,17 @@ footer {
 #firstPart {
     top: 300px;
     left: 220px;
+    width: 450px;
 }
 
 #secondPart {
     top: 280px;
-    left: 600px;
+    left: 690px;
+    width: 270px;
 }
 
 #thirdPart {
    top: 260px;
-   left: 960px; 
+   left: 970px; 
+   width: 430px;
 }
