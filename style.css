@@ -16,6 +16,7 @@ body {
 main {
     background-image: url("kalender.jpg");
     background-size: 100% auto;
+    background-position-y: 55%;
     position: absolute;
     left: 0;
     right: 0;
@@ -51,6 +52,13 @@ footer {
     user-select: none;
 }
 
+.card-text {
+    position: relative;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
 .generateButton {
     background-color: darkgray;
     color: white;
@@ -71,20 +79,23 @@ footer {
     user-select: none;
 }
 
-#firstPart {
-    top: 300px;
-    left: 220px;
-    width: 450px;
+#firstCard {
+    top: 50%;
+    left: 6%;
+    width: 31%;
+    transform: translateY(-50%); 
 }
 
-#secondPart {
-    top: 280px;
-    left: 690px;
-    width: 270px;
+#secondCard {
+    top: 50%;
+    left: 40%;
+    width: 17%;
+    transform: translateY(-50%); 
 }
 
-#thirdPart {
-   top: 260px;
-   left: 970px; 
-   width: 430px;
+#thirdCard {
+   top: 50%;
+   left: 59%; 
+   width: 32%;
+   transform: translateY(-50%); 
 }
