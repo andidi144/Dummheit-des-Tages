@@ -53,6 +53,7 @@ footer {
 }
 
 .card-text {
+    font-size: 2vw;
     position: relative;
     display: block;
     top: 50%;
