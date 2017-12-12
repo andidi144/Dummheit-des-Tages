@@ -53,7 +53,7 @@ footer {
 }
 
 .card-text {
-    font-size: 2vw;
+    font-size: 3vw;
     position: relative;
     display: block;
     top: 50%;
@@ -99,4 +99,9 @@ footer {
    left: 59%; 
    width: 32%;
    transform: translateY(-50%); 
+}
+
+.right {
+    float: right;
+    margin-right: 20px; 
 }
